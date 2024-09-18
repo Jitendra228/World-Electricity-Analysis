@@ -1,0 +1,9 @@
+Q4 A chart to depict the increase in count of country with greater than 75% electricity access in rural areas across different year.For example, what was the count of 
+countries having ≥75% rural electricity access in 2000 as compared to 2010.
+
+(select '2000' AS YEAR, count(_2000) AS sum_2000
+from rural
+where _2000>=75)
+union (select '2010', count(_2010) AS sum_2010
+from rural
+where _2010>=75)

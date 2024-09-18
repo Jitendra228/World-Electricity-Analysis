@@ -1,0 +1,51 @@
+
+Q5.Define a way/KPI to present the evolution of nuclear power presence grouped by Region and IncomeGroup. How was the nuclear power generation in the region of Europe & Central Asia as compared to Sub-Saharan Africa. 
+
+with cte as(
+(select '2000' as Years,Country_Name,round(_2000,2) as Percentages from total)
+union
+(select '2001' as years,Country_Name,round(_2001,2) as percentages from total)
+union
+(select '2002' as years,Country_Name,round(_2002,2) as percentages from total)
+union
+(select '2003' as years,Country_Name,round(_2003,2) as percentages from total)
+union
+(select '2004' as years,Country_Name,round(_2004,2) as percentages from total)
+union
+(select '2005' as years,Country_Name,round(_2005,2) as percentages from total)
+union
+(select '2006' as years,Country_Name,round(_2006,2) as percentages from total)
+union
+(select '2007' as years,Country_Name,round(_2007,2) as percentages from total)
+union
+(select '2008' as years,Country_Name,round(_2008,2) as percentages from total)
+union
+(select '2009' as years,Country_Name,round(_2009,2) as percentages from total)
+union
+(select '2010' as years,Country_Name,round(_2010,2) as percentages from total)
+union
+(select '2011' as years,Country_Name,round(_2011,2) as percentages from total)
+union
+(select '2012' as years,Country_Name,round(_2012,2) as percentages from total)
+union
+(select '2013' as years,Country_Name,round(_2013,2) as percentages from total)
+union
+(select '2014' as years,Country_Name,round(_2014,2) as percentages from total)
+union
+(select '2015' as Years,Country_Name,round(_2015,2) as Percentages from total)
+union
+(select '2016' as years,Country_Name,round(_2016,2) as percentages from total)
+union
+(select '2017' as years,Country_Name,round(_2017,2) as percentages from total)
+union
+(select '2018' as years,Country_Name,round(_2018,2) as percentages from total)
+union
+(select '2019' as years,Country_Name,round(_2019,2) as percentages from total)
+union
+(select '2020' as years,Country_Name,round(_2020,2) as percentages from total)
+), 
+
+
+cte2 as (select *,avg(percentages) over(partition by years) as average from cte)
+
+select Years,Country_Name,Percentages,round(average ,2) Annual_Averages from cte2

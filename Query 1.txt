@@ -1,0 +1,8 @@
+Q1 Comparison of access to electricity post-2000s in different countries.
+
+SELECT COUNTRY_NAME, AVG(_2001 + _2002+ _2003 + _2004  + _2005 + _2006 + _2007 
++ _2008 + _2009 + _2010  + _2011 + _2012 + _2013 + _2014 + _2015  + _2016 + _2017 +
+_2018 + _2019 + _2020)  AS AVERAGE_OF_ELECTRICITY_IN_POST_2000S
+FROM total
+group by
+Country_Name;

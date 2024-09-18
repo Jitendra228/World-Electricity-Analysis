@@ -1,0 +1,27 @@
+Q6.A chart to present the production of electricity across different sources (nuclear, oil, etc.) as a function of time
+
+with CTE AS(
+(select '01' AS SR_NO,'60s' as Years,ROUND(AVG(N._60s),2) AS 'Nuclear',ROUND(AVG(O._60s),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '02' AS SR_NO,'70s' as Years,ROUND(AVG(N._70s),2) AS 'Nuclear',ROUND(AVG(O._70s),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '03' AS SR_NO,'80s' as Years,ROUND(AVG(N._80s),2) AS 'Nuclear',ROUND(AVG(O._80s),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '04' AS SR_NO,'90s' as Years,ROUND(AVG(N._90s),2) AS 'Nuclear',ROUND(AVG(O._90s),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '05' AS SR_NO,'2000s' as Years,ROUND(AVG(N._2000s),2) AS 'Nuclear',ROUND(AVG(O._2010s),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '06' AS SR_NO,'2010' as Years,ROUND(AVG(N._2010),2) AS 'Nuclear',ROUND(AVG(O._2010),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '07' AS SR_NO,'2011' as Years,ROUND(AVG(N._2011),2) AS 'Nuclear',ROUND(AVG(O._2011),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '08' AS SR_NO,'2012' as Years,ROUND(AVG(N._2012),2) AS 'Nuclear',ROUND(AVG(O._2012),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '09' AS SR_NO,'2013' as Years,ROUND(AVG(N._2013),2) AS 'Nuclear',ROUND(AVG(O._2013),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '10' AS SR_NO,'2014' as Years,ROUND(AVG(N._2014),2) AS 'Nuclear',ROUND(AVG(O._2014),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+UNION
+(select '11' AS SR_NO,'2015' as Years,ROUND(AVG(N._2015),2) AS 'Nuclear',ROUND(AVG(O._2015),2) AS 'Oil' from Nuclear n join oil o on o.Country_Name=n.Country_Name)
+)
+
+SELECT *,(100-Nuclear-Oil) AS Others FROM CTE
